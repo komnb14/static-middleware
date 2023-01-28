@@ -12,11 +12,9 @@ export function middleware(request: NextRequest) {
         const searchParams = request.nextUrl.searchParams;
         const queryHL = searchParams.get('hl') || "";
         const calculateHL = calculateLang(KOR_ARRAY.includes(queryHL));
-        const path = encodeOptions({
-            lang: Boolean(calculateHL) ? calculateHL : langCountry,
-        });
+        const lang = Boolean(calculateHL) ? calculateHL : langCountry
 
-        return NextResponse.rewrite(new URL(`/locale/${path}`, request.nextUrl))
+        return NextResponse.rewrite(new URL(`/locale/${lang}`, request.nextUrl))
     }
     return NextResponse.next();
 

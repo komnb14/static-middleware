@@ -3,32 +3,31 @@ import {decodeOptions} from "../../middleware";
 import Head from "next/head";
 
 export async function getStaticProps({params}: any) {
-    const options = decodeOptions(params.path)
+    const path = params.path
     return {
         props: {
-            options,
+            path,
         }
     }
 }
 
 export function getStaticPaths() {
     return {
-        paths: [{params: {path: "%7B%22lang%22:%22ko%22%7D"}}, {params: {path: "%7B%22lang%22:%22en%22%7D"}}],
+        paths: [{params: {path: "ko"}}, {params: {path: "en"}}],
         fallback: true
     }
 }
 
-const Path = (props: any) => {
+const Path = ({path}: any) => {
 
 
-    if(!props?.options?.lang) return null;
     return (
         <>
             <Head>
-                <title>{props.options.lang}</title>
+                <title>{path}</title>
             </Head>
             <div>
-                {JSON.stringify(props)}
+                {JSON.stringify(path)}
             </div>
         </>
     );
