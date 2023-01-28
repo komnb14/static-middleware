@@ -8,21 +8,7 @@ export default function IndexPage() {
 
   return (
     <div>
-      <h1>Index page</h1>
-      <p>Current locale: {locale}</p>
-      <p>Default locale: {defaultLocale}</p>
-      <p>Configured locales: {JSON.stringify(locales)}</p>
-
-      <LocaleSwitcher />
-
-      <Link href="/gsp">To getStaticProps page</Link>
-      <br />
-
-      <Link href="/gsp/first">To dynamic getStaticProps page</Link>
-      <br />
-
-      <Link href="/gssp">To getServerSideProps page</Link>
-      <br />
+        THIS PAGE IS NOT USABLE
     </div>
   )
 }
